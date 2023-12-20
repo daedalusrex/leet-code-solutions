@@ -24,7 +24,7 @@ def max_vowels_mostly_generated(s: str, k: int) -> int:
 
 
 def jetbrains_version(s: str, k: int) -> int:
-    vowels = {'a', 'e', 'i', 'o', 'u'}
+    vowels = {"a", "e", "i", "o", "u"}
 
     if k > len(s):
         return sum(char in vowels for char in s)
@@ -38,7 +38,6 @@ def jetbrains_version(s: str, k: int) -> int:
             curr_vowels += 1
         max_vowel = max(max_vowel, curr_vowels)
     return max_vowel
-
 
 
 def chatgpt_version(s: str, k: int) -> int:
