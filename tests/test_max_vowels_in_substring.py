@@ -1,6 +1,6 @@
 import pytest
 
-from questions.max_vowels_in_substring import max_vowels
+from questions.max_vowels_in_substring import max_vowels_mostly_generated
 
 vowel_test_cases = [
     # Testing when the input string has no vowels
@@ -24,5 +24,5 @@ vowel_test_cases = [
 
 @pytest.mark.parametrize("s,k,expected", vowel_test_cases)
 def test_max_vowels(s, k, expected):
-    assert max_vowels(s, k) == expected
+    assert max_vowels_mostly_generated(s, k) == expected
 
