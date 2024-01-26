@@ -9,14 +9,13 @@ the first k elements of nums should hold the final result.
 It does not matter what you leave beyond the first k elements.
 
 Return k after placing the final result in the first k slots of nums."""
-from typing import List
+from typing import List, Tuple
 
 MAX_OUT_DUPS = 2
 
 
-def remove_dups(nums: List[int]) -> int:
-    # reader: int = 0  ## potential dup with i below
-    writer: int = 0
+def remove_dups(nums: List[int]) -> Tuple[int, List[int]]:
+    writer: int = 1  # Writer starts at i:1 because 0th is always present
     monotonic_val = nums[0]
     seen_val_count: int = 1
 
@@ -37,3 +36,5 @@ def remove_dups(nums: List[int]) -> int:
                 writer += 1
             elif seen_val_count >= MAX_OUT_DUPS:
                 continue
+
+    return writer, nums[0:writer]
