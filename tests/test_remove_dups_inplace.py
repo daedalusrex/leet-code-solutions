@@ -5,6 +5,8 @@ from questions.remove_dups_inplace import remove_dups
 dups_test_cases = [
     ([1, 1, 1, 2, 2, 3], [1, 1, 2, 2, 3]),
     ([0, 0, 1, 1, 1, 1, 2, 3, 3], [0, 0, 1, 1, 2, 3, 3]),
+    ([1], [1]),
+    ([1, 2], [1, 2]),
 ]
 
 

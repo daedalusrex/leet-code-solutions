@@ -9,12 +9,16 @@ the first k elements of nums should hold the final result.
 It does not matter what you leave beyond the first k elements.
 
 Return k after placing the final result in the first k slots of nums."""
-from typing import List, Tuple
+from typing import List, Tuple, Final
 
-MAX_OUT_DUPS = 2
+MAX_OUT_DUPS: Final[int] = 2
 
 
 def remove_dups(nums: List[int]) -> Tuple[int, List[int]]:
+    # Stupid Edge Case
+    if len(nums) == 1:
+        return len(nums), nums
+
     writer: int = 1  # Writer starts at i:1 because 0th is always present
     monotonic_val = nums[0]
     seen_val_count: int = 1
@@ -22,6 +26,10 @@ def remove_dups(nums: List[int]) -> Tuple[int, List[int]]:
     for reader, num in enumerate(nums):
         # look at value, non-decreasing means it must be the same, or greater
         assert num >= monotonic_val, "next is smaller, input violation"
+
+        # Edge case, don't read the first one because always present
+        if reader == 0:
+            continue
 
         # if value is greater , than it is "new".
         if num > monotonic_val:
